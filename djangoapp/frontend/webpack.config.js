@@ -6,7 +6,6 @@ module.exports = {
   entry: {
     main: [
       './src/index.js',
-      '@babel/polyfill',
       //'src/styles.css',
       //'bootstrap/dist/css/bootstrap.min.css',
     ],

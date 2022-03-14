@@ -1,50 +1,32 @@
-import React, { Component } from 'react';
-import { render } from "react-dom";
+import React from 'react';
+import { Profile } from './Profile';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+
+class App extends React.Component {
+
+  constructor() {
+    super();
     this.state = {
-      data: [],
-      loaded: false,
-      placeholder: "Loading"
+      //is_super: document.querySelector('#user_info').dataset.is_super.toLowerCase() || true,
+      is_super: "true",
+      //userid: document.querySelector('#user_info').dataset.userid || 0,
+      userid: 0,
+      //username: document.querySelector('#user_info').dataset.username || 'zm412',
+      username: 'zm412',
     };
   }
-
-  componentDidMount() {
-    fetch("api/lead")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      });
-  }
+   
 
   render() {
+
     return (
-      <ul>
-        {this.state.data.map(contact => {
-          return (
-            <li key={contact.id}>
-              {contact.name} - {contact.email}
-            </li>
-          );
-        })}
-      </ul>
+
+      <div className="App-header">
+          <div><Profile is_super={ this.state.is_super } userid={this.state.userid} username={this.state.username} /></div>
+      </div>
+          
     );
   }
 }
 
 export default App;
-
