@@ -24,6 +24,10 @@
     background-color: #E6E6FA	;
   }
 
+  .not_on_small {
+    display: none;
+  }
+
 }
 
   /* Большой дисплей */

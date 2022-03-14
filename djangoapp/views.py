@@ -10,13 +10,7 @@ class LeadListCreate(generics.ListCreateAPIView):
 
 
 def index(request):
-    return render(request, "djangoapp/index.html", {
-        "user_temp":  {
-            "id": 0,
-            "is_super": True,
-            "username": 'zm413'
-        }
-    })
+    return render(request, "djangoapp/index.html")
 
 
 def login_view(request):

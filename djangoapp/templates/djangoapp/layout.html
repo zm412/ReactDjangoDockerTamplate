@@ -11,16 +11,16 @@
     <body>
       <nav>
         <ul class="nav  topmenu justify-content-center">
-          <li class="nav-item">
+          <li class="nav-item  not_on_small">
             <a class="nav-link" href="#" tabindex="-1" id='main_p' data-is_auth={{ user.is_authenticated }} aria-disabled="true">File-portal</a>
           </li>
                                     {% if user.is_authenticated %}
                 {% csrf_token %}
-          <li class="nav-item">
+          <li class="nav-item not_on_small">
             <a class="nav-link" href="{% url 'index' %}">Home</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item  not_on_small">
             <a class="nav-link" 
               data-userid="{{ user_temp.id }}" 
               id='user_info'  
@@ -46,7 +46,8 @@
           </li>
                                   {% endif %}
 
-          <li class="nav-item">
+          <li class="nav-item not_on_small">
+      <img class="nav-link" src="{% static 'djangoapp/pic1.png' %}" width="100" style="margin-right: 25px">
           </li>
       </ul>
     </nav>
