@@ -4,84 +4,64 @@ import { Button, Carousel, Card, Image } from 'react-bootstrap';
 import { Admin_col } from './Profile_frame/Admin_col';
 import { First_col } from './Profile_frame/First_col';
 import { Second_col } from './Profile_frame/Second_col';
-
-
-
-function getTabClass(id_elem, is_super){
-  let classN = 'col col-sm-12  m-4 p-2 frame ';
-  if(is_super == 'true'){
-    if(id_elem == 'first_col') classN += 'col-lg-3';
-    if(id_elem == 'second_col') classN += 'col-lg-4';
-    if(id_elem == 'admin_col') classN += 'col-lg-3';
-  }else{
-    classN = 'col-lg-6';
-  }
-  return classN;
-}
-
-const Tab = ({ add_class, content, id_elem, classTab, classTitle, title }) => { 
-    let resultTabClass = classTab + ' ' + add_class;
-
-    return( <div id={id_elem} className={resultTabClass} >
-              <h5 className={classTitle}>{title}</h5>
-              {content}
-          </div>
-    ) 
-}
+import { Button_accord } from './Profile_frame/common_components/tab_system/Button_accord';
+import { Tab_accord } from './Profile_frame/common_components/tab_system/Tab_accord';
 
 export const Profile = ({ is_super, userid, username }) => {
-
-  const openTab = (elem, tab_name, blocks_class_name, buttons_class_name) => {
-    let blocks = document.querySelectorAll(blocks_class_name);
-    for(let item of blocks){
-      item.id == tab_name  ? item.classList.add('active') : item.classList.remove('active');
-    }
-    let buttons = document.querySelectorAll(buttons_class_name);
-    for(let item of buttons){
-      item == elem  ? item.classList.add('active') : item.classList.remove('active');
-    }
-  }
 
   let first_col_content = <First_col />
   let second_col_content = <Second_col />
   let admin_col_content = <Admin_col />
 
+  let getTabClass = (id_elem, is_super) => {
+    let classN = 'col col-sm-12  m-4 p-2 frame ';
+    if(is_super == 'true'){
+      if(id_elem == 'first_col') classN += 'col-lg-3';
+      if(id_elem == 'second_col') classN += 'col-lg-4';
+      if(id_elem == 'admin_col') classN += 'col-lg-3';
+    }else{
+      classN = 'col-lg-6';
+    }
+    return classN;
+  }
+
   return (
 
     <div>
       <div className="row buttons_block ">
-          <Button 
-              data-tab='first_col' 
-              onClick={(e)=>openTab(e.target, e.target.dataset.tab, '.frame', '.main_button')} 
+          <Button_accord 
+              tab_name="first_col"
+              tabs_class_name=".frame"
+              buttons_class_name=".main_button"
+              buttons_all_classes="active mt-1 main_button col-sm-7 .main_button"
+              button_name="First Col"
               variant="secondary" 
-              className="mt-1 main_button col-sm-7 active"
-          >
-            First Col
-          </Button> 
-          <Button  
-            data-tab='second_col' 
-            onClick={(e)=>openTab(e.target, e.target.dataset.tab, '.frame', '.main_button')} 
-            variant="secondary" 
-            className="mt-1 main_button col-sm-7"
-            >
-            Second Col
-          </Button> 
+          />
+
+          <Button_accord 
+              tab_name="second_col"
+              tabs_class_name=".frame"
+              buttons_class_name=".main_button"
+              buttons_all_classes="mt-1 main_button col-sm-7 .main_button"
+              button_name="Second Col"
+              variant="secondary" 
+          />
 
     { is_super == 'true' && 
-          <Button 
-            data-tab='admin_panel' 
-            onClick={(e)=>openTab(e.target, e.target.dataset.tab, '.frame', '.main_button')} 
-            variant="secondary" 
-            className="mt-1 main_button col-sm-7"
-          >
-            Admin panel
-          </Button> 
+          <Button_accord 
+              tab_name="admin_col"
+              tabs_class_name=".frame"
+              buttons_class_name=".main_button"
+              buttons_all_classes="mt-1 main_button col-sm-7 .main_button"
+              button_name="Admin Col"
+              variant="secondary" 
+          />
     }
     </div>
 
       <div className="row justify-content-md-center">
 
-        <Tab 
+        <Tab_accord
             add_class='active' 
             content={first_col_content} 
             id_elem='first_col' 
@@ -90,7 +70,7 @@ export const Profile = ({ is_super, userid, username }) => {
             title="First Col" 
         />
 
-        <Tab 
+        <Tab_accord
             add_class='' 
             content={second_col_content} 
             id_elem='second_col' 
@@ -101,10 +81,10 @@ export const Profile = ({ is_super, userid, username }) => {
 
     { is_super == 'true' && 
 
-        <Tab 
+        <Tab_accord
             add_class='' 
             content={admin_col_content} 
-            id_elem='admin_panel' 
+            id_elem='admin_col' 
             classTab={ getTabClass('admin_col', is_super) }
             classTitle='tabName'
             title="Admin panel"
