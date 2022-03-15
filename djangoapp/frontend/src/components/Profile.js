@@ -1,6 +1,10 @@
 
 import React from 'react';
 import { Button, Carousel, Card, Image } from 'react-bootstrap';
+import { Admin_col } from './Profile_frame/Admin_col';
+import { First_col } from './Profile_frame/First_col';
+import { Second_col } from './Profile_frame/Second_col';
+
 
 const Tab = ({ add_class, content, id_elem, is_super, tabName }) => { 
   let classN =  `col col-sm-12 ${is_super == 'true' && id_elem == 'second_col' ? 'col-lg-4'
@@ -29,9 +33,9 @@ export const Profile = ({ is_super, userid, username }) => {
     }
   }
 
-  let personal = 'Personal block content';
-  let common = 'Common block content';
-  let admin = 'Admin block content';
+  let first_col_content = <First_col />
+  let second_col_content = <Second_col />
+  let admin_col_content = <Admin_col />
 
   return (
 
@@ -68,12 +72,12 @@ export const Profile = ({ is_super, userid, username }) => {
 
       <div className="row justify-content-md-center">
 
-        <Tab add_class='active' content={personal} id_elem='first_col' is_super={is_super} tabName="First Col" />
-        <Tab add_class='' id_elem='second_col' content={common} is_super={is_super} tabName="Second col" />
+        <Tab add_class='active' content={first_col_content} id_elem='first_col' is_super={is_super} tabName="First Col" />
+        <Tab add_class='' id_elem='second_col' content={second_col_content} is_super={is_super} tabName="Second col" />
 
     { is_super == 'true' && 
 
-        <Tab add_class={ true ? '' : 'hidden_block' } content={admin} id_elem='admin_panel' is_super={is_super} tabName="Admin panel"/> 
+        <Tab add_class={ true ? '' : 'hidden_block' } content={admin_col_content} id_elem='admin_panel' is_super={is_super} tabName="Admin panel"/> 
 
     }
         
