@@ -65,6 +65,14 @@
   text-align: left;
 }
 
+
+.tab_admin:not(.active) {
+  display: none;
+}
+.tab_admin.active{
+  display: block;
+}
+ 
 .no_decoration{
   text-decoration: none;
   color: #2D2D01;
@@ -92,8 +100,12 @@
   position: relative;
 }
 
-.hidden_block{
+.hidden_block {
   display: none;
+}
+
+.fullscr_mode {
+
 }
 
 .center_cl {
