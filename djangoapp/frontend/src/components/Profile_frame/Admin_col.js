@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { Button_accord } from './common_components/tab_system/Button_accord';
+import { QuestionTab } from './admin_col_components/QuestionTab';
 import { FullScreenButton } from './common_components/buttons/FullScreenButton';
 import { Tab_accord } from './common_components/tab_system/Tab_accord';
 
@@ -28,7 +29,7 @@ export  const Admin_col = () => {
   let tabs_set = [
     {
       add_class:'active',
-      content:'first',
+      content: <QuestionTab />,
       id_elem:'questions', 
       classTab:'tab_admin',
       classTitle:'',
