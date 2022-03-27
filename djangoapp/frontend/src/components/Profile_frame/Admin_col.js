@@ -61,7 +61,7 @@ export  const Admin_col = () => {
       <FullScreenButton 
           tab_name='admin_col'
           tabs_class_name=".frame"
-          buttons_all_classes="mt-1 col-sm-12"
+          buttons_all_classes="mt-1 col-sm-12 full_screen_mode"
           button_name1="Fullscreen mode"
           button_name2="Fullscreen mode off"
           variant="secondary" 

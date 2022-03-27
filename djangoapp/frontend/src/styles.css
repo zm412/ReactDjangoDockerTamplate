@@ -8,6 +8,11 @@
     display: none;
   }
 
+
+  .full_screen_mode {
+    display: none;
+  }
+
   .info_block {
     width: 80%;
   }
@@ -98,6 +103,10 @@
 
 .card_pos {
   position: relative;
+}
+
+.hidden_block_admin {
+  display: none;
 }
 
 .hidden_block {

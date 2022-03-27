@@ -11,6 +11,7 @@ import { Button } from 'react-bootstrap';
 
 
 export const Tab_accord = ({ add_class, content, id_elem, classTab, classTitle, title }) => { 
+  console.log(add_class, 'add_class')
    let resultTabClass = classTab + ' ' + add_class;
 
    return( <div id={id_elem} className={resultTabClass} >

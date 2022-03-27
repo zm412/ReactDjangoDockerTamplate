@@ -13,18 +13,6 @@ export const Profile = ({ is_super, userid, username }) => {
   let second_col_content = <Second_col />
   let admin_col_content = <Admin_col />
 
-  let getTabClass = (id_elem, is_super) => {
-    let classN = 'col col-sm-12  m-4 p-2 frame ';
-    if(is_super == 'true'){
-      if(id_elem == 'first_col') classN += 'col-lg-3';
-      if(id_elem == 'second_col') classN += 'col-lg-4';
-      if(id_elem == 'admin_col') classN += 'col-lg-3';
-    }else{
-      classN = 'col-lg-6';
-    }
-    return classN;
-  }
-
   return (
 
     <div>
@@ -33,7 +21,7 @@ export const Profile = ({ is_super, userid, username }) => {
               tab_name="first_col"
               tabs_class_name=".frame"
               buttons_class_name=".main_button"
-              buttons_all_classes="active mt-1 main_button col-sm-7 .main_button"
+              buttons_all_classes="active mt-1 main_button col-sm-7 "
               button_name="First Col"
               variant="secondary" 
           />
@@ -42,7 +30,7 @@ export const Profile = ({ is_super, userid, username }) => {
               tab_name="second_col"
               tabs_class_name=".frame"
               buttons_class_name=".main_button"
-              buttons_all_classes="mt-1 main_button col-sm-7 .main_button"
+              buttons_all_classes="mt-1 main_button col-sm-7"
               button_name="Second Col"
               variant="secondary" 
           />
@@ -52,7 +40,7 @@ export const Profile = ({ is_super, userid, username }) => {
               tab_name="admin_col"
               tabs_class_name=".frame"
               buttons_class_name=".main_button"
-              buttons_all_classes="mt-1 main_button col-sm-7 .main_button"
+              buttons_all_classes="mt-1 main_button col-sm-7"
               button_name="Admin Col"
               variant="secondary" 
           />
@@ -62,19 +50,19 @@ export const Profile = ({ is_super, userid, username }) => {
       <div className="row justify-content-md-center">
 
         <Tab_accord
-            add_class='active' 
+            add_class= { is_super=='true' ? 'col-lg-3 active' : 'col-lg-5 active' } 
             content={first_col_content} 
             id_elem='first_col' 
-            classTab={ getTabClass('first_col', is_super) }
+            classTab='col col-sm-12 m-4 p-2 frame'
             classTitle='tabName'
             title="First Col" 
         />
 
         <Tab_accord
-            add_class='' 
+            add_class= { is_super=='true' ? 'col-lg-4' : 'col-lg-5' } 
             content={second_col_content} 
             id_elem='second_col' 
-            classTab={ getTabClass('second_col', is_super) }
+            classTab='col col-sm-12 m-4 p-2 frame'
             classTitle='tabName'
             title="Second col" 
         />
@@ -85,7 +73,7 @@ export const Profile = ({ is_super, userid, username }) => {
             add_class='' 
             content={admin_col_content} 
             id_elem='admin_col' 
-            classTab={ getTabClass('admin_col', is_super) }
+            classTab='col col-sm-12 m-4 p-2 frame'
             classTitle='tabName'
             title="Admin panel"
         /> 
@@ -96,4 +84,4 @@ export const Profile = ({ is_super, userid, username }) => {
 
     </div>
   )
-};
+}

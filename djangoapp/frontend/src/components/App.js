@@ -8,7 +8,7 @@ class App extends React.Component {
     super();
     this.state = {
       //is_super: document.querySelector('#user_info').dataset.is_super.toLowerCase() || true,
-      is_super: "true",
+      is_super: "false",
       //userid: document.querySelector('#user_info').dataset.userid || 0,
       userid: 0,
       //username: document.querySelector('#user_info').dataset.username || 'zm412',

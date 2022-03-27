@@ -18,7 +18,7 @@ async function fetchDataPost(url, obj){
 
 async function fetchDataGet(url) {
   let answer;
-  await fatch(url)
+  await fetch(url)
     .then(response=> response.json())
     .then(data => answer = data)
   return answer;
